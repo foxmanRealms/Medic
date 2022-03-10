@@ -5,6 +5,8 @@ public class Test03 {
 
 	
 	System.out.println("마지막테스트");
+	
+	System.out.println("심각 졸림");
 	}
 
 }
