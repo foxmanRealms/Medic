@@ -22,7 +22,7 @@ public class StoryCnt implements Command{
 		int story_cnt = Integer.parseInt(request.getParameter("story_cnt"));
 		int story_seq = Integer.parseInt(request.getParameter("story_seq"));
 		
-		int cnt = new StoryDAO().updateCnt(story_seq, story_cnt);
+		int cnt = new StoryDAO().updateCount(story_seq, story_cnt);
 		
 		if(cnt > 0) {
 			System.out.println("조회수 업데이트 성공!");

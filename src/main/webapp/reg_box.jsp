@@ -78,12 +78,12 @@
 					<!-- 실사용자 이름 출력 (수정 필요)-->
 					<strong>고점례</strong>님, 약 보관함 페이지입니다.
 				</h4>
-			</header>
-			<div class="box">
 				<span class="image featured"><img src="images/med_box.png"
-					style="width:50%; display: block; margin: 0px auto;" alt="" />
+					style="width:50%; display: block; margin-top: 50px;" alt="" />
 				</span>
-
+			</header>
+			
+			<div class="box">
 				<div>
 					<div class="row-6 row-12-mobilep">
 						<table>
@@ -109,7 +109,7 @@
 			                     <tr>
 			                        <td bgcolor="white" align="center">1</td>
 			                        <td bgcolor="white"><input type="text" name="med_box1"
-			                           style="width: 150px" placeholder="입력"></td>
+			                           placeholder="입력"></td>
 			                            
 			                        <td><input type="text" name="med_hosp1"
 			                           style="width: 150px;"></td>
@@ -122,7 +122,7 @@
 			                     <tr>
 			                        <td bgcolor="white" align="center">2</td>
 			                        <td bgcolor="white"><input type="text" name="med_box2"
-			                           style="width: 150px" placeholder="입력"></td>
+			                           placeholder="입력"></td>
 			                            
 			                        <td><input type="text" name="med_hosp2"
 			                           style="width: 150px;"></td>
@@ -135,7 +135,7 @@
 			                     <tr>
 			                        <td bgcolor="white" align="center">3</td>
 			                        <td bgcolor="white"><input type="text" name="med_box3"
-			                           style="width: 150px" placeholder="입력"></td>
+			                           placeholder="입력"></td>
 			                            
 			                        <td><input type="text" name="med_hosp3"
 			                           style="width: 150px;"></td>
@@ -148,7 +148,7 @@
 			                     <tr>
 			                        <td bgcolor="white" align="center">4</td>
 			                        <td bgcolor="white"><input type="text" name="med_box4"
-			                           style="width: 150px" placeholder="입력"></td>
+			                           placeholder="입력"></td>
 			                            
 			                        <td><input type="text" name="med_hosp4"
 			                           style="width: 150px;"></td>
@@ -161,7 +161,7 @@
 			                     <tr>
 			                        <td bgcolor="white" align="center">5</td>
 			                        <td bgcolor="white"><input type="text" name="med_box5"
-			                           style="width: 150px" placeholder="입력"></td>
+			                           placeholder="입력"></td>
 			                            
 			                        <td><input type="text" name="med_hosp5"
 			                           style="width: 150px;"></td>
@@ -174,7 +174,7 @@
 			                     <tr>
 			                        <td bgcolor="white" align="center">6</td>
 			                        <td bgcolor="white"><input type="text" name="med_box6"
-			                           style="width: 150px" placeholder="입력"></td>
+			                           placeholder="입력"></td>
 			                            
 			                        <td><input type="text" name="med_hosp6"
 			                           style="width: 150px;"></td>
@@ -187,7 +187,7 @@
 			                     <tr>
 			                        <td bgcolor="white" align="center">7</td>
 			                        <td bgcolor="white"><input type="text" name="med_box7"
-			                           style="width: 150px" placeholder="입력"></td>
+			                           placeholder="입력"></td>
 			                            
 			                        <td><input type="text" name="med_hosp7"
 			                           style="width: 150px;"></td>
@@ -200,7 +200,7 @@
 			                     <tr>
 			                        <td bgcolor="white" align="center">8</td>
 			                        <td bgcolor="white"><input type="text" name="med_box8"
-			                           style="width: 150px" placeholder="입력"></td>
+			                           placeholder="입력"></td>
 			                            
 			                        <td><input type="text" name="med_hosp8"
 			                           style="width: 150px;"></td>

@@ -12,6 +12,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
 <style>
 table, th, tr, td{
 	text-align: center !important;
@@ -23,7 +24,7 @@ table, th, tr, td{
 	<%
 		UserDTO udto = (UserDTO)session.getAttribute("udto");
 		
-		ArrayList<StoryDTO> stdto = new StoryDAO().selectBoardAll();
+		ArrayList<StoryDTO> list = new StoryDAO().selectBoardAll();
 	%>
 
 	<div id="page-wrapper">
@@ -88,68 +89,35 @@ table, th, tr, td{
 							<th>제목</th>
 							<th>작성자</th>
 							<th>작성일</th>
-							<th>조회</th>
-							<th>좋아요</th>
+							<th><i class="fa-solid fa-eye"></i></th>
+							<th><i class="fa-solid fa-heart"></i></th>
 						</thead>
 						
 						<tbody>
-							<!-- 게시글 번호 -->
-							<% int num = 1;%>
-							<% for(StoryDTO s : stdto){ %>
-								<!-- 조회수 -->
-								<% int story_cnt = 0; int story_seq = 0;%>
-								<tr>
-									<td><%= num %></td>
-									<td><a href="storySelect.jsp" onclick="count()"><%= s.getStory_title() %></a></td>
-									<td><%= s.getUser_id() %></td>
-									<td><%= s.getStory_joindate().split(" ")[0] %></td>
-									<td><%= s.getStory_cnt() %></td>
-									<td><%= s.getStory_like() %></td>
-										<% story_cnt = s.getStory_cnt();  %>
-										<% story_seq = s.getStory_seq();  %>
-								</tr>
-							<% num++;} %>
+						<!-- 게시글 번호 -->
+						<% int num = 1;%>
+						<% for(StoryDTO s : list){ %>
+							<tr>
+								<td><%= num %></td>
+								<td><a href="storySelect.jsp?story_seq=<%= s.getStory_seq() %>">
+								<%= s.getStory_title() %></a></td>
+								<td><%= s.getUser_id() %></td>
+								<td><%= s.getStory_joindate().split(" ")[0] %></td>
+								<td><%= s.getStory_cnt() %></td>
+								<td><%= s.getStory_like() %></td>
+							</tr>
+						<% num++; } %>
 						</tbody>
 					</table>
 
-					<div class="col-3 col-12-mobilep">
+					<div>
 						<a href="storyWrite.jsp" class="button special" style="float:right">글쓰기</a>
-					</div>
-						
-					<div style="width:20%">
+						<div class="task-tabs">
 						<input type="text" id="search" placeholder="제목만"/>
 						<input type="submit" id="btn" value="검색" class="small" style="float:right;" onclick="search()"/>
+						</div>
 					</div>
-					
 				
-					<script type="text/javascript">
-						isShow= true;
-						function search(){
-							if(isShow){
-								isShow = false;
-								$('tbody').hide();
-								$('input#btn').val('전체')
-							} else{
-								isShow = true;
-								$('tbody').show();
-								$('input#btn').val('검색')
-							}
-						}
-						
-						
-						// 조회수 카운트
-						function count(){
-							$.ajax({
-								url : "StoryCntCon.do",
-								data :{
-									story_cnt : story_cnt,
-									story_seq : story_seq
-									},
-								method : "get",
-							});
-						}
-					</script>
-					
 				</div>
 			</div>
 		</section>
@@ -179,7 +147,25 @@ table, th, tr, td{
 
 	</div>
 
+
+
 	<!-- Scripts -->
+	<script type="text/javascript">
+	isShow= true;
+	function search(){
+		if(isShow){
+			isShow = false;
+			$('tbody').hide();
+			$('input#btn').val('전체')
+		} else{
+			isShow = true;
+			$('tbody').show();
+			$('input#btn').val('검색')
+		}
+	}
+	
+	</script>
+	
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.dropotron.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>

@@ -91,14 +91,14 @@
 								<td><input type="password" name="user_pw"></td> 
 							</tr>
 							
-							<tr align="center">
-								<td >
+							<!-- <tr align="center">
+								<td colspan="2">
 								<div class="col-6 col-12-narrower">
 									<input type="checkbox" id="keep_login" name="keep_login">
 									<label for="keep_login">로그인 상태 유지</label>
 								</div>
 								</td>
-							</tr>
+							</tr> -->
 						
 							<tr align="center">
 								<td colspan="2"><input type="submit" value="로그인"></td>

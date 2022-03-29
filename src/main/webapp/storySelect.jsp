@@ -1,3 +1,6 @@
+<%@page import="Model.StoryDAO"%>
+<%@page import="Model.StoryDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="Model.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
@@ -14,6 +17,9 @@
 	
 	<%
 		UserDTO udto = (UserDTO)session.getAttribute("udto");
+	
+		int story_seq = Integer.parseInt(request.getParameter("story_seq"));
+		StoryDTO stdto = new StoryDAO().selectBoardOne(story_seq);
 	%>
 
 	<div id="page-wrapper">
@@ -80,24 +86,18 @@
 								<blockquote><h3>글 조회</h3></blockquote>
 							
 								<div class="col-12">
-									<input type="text" name="story_title" placeholder="제목을 작성해 주세요."/>
-									<input type="hidden" name="user_id"/>
-									<input type="hidden" name="story_joindate"/>
+									<h3><%= stdto.getStory_title() %></h3>
+									<%= stdto.getUser_id() %>
+									<%= stdto.getStory_joindate() %>
+									<%= stdto.getStory_cnt() %>
+									<%= stdto.getStory_like() %>
+									
 								</div>
 								
-								<div class="col-12">
-									<input name="story_file" type="file" style="float: right;"/>
+								<div>
+									<a href="storyMain.jsp" class="button" value="목록"></a>
 								</div>
-								
-								<div class="col-12">
-									<textarea name="story_content" placeholder="내용을 작성해 주세요." rows="6"></textarea>
-								</div>
-								<div class="col-12">
-									<ul class="actions">
-										<li><input type="submit" value="작성"/></li>
-										<li><input type="reset" value="취소" class="alt" /></li>
-									</ul>
-								</div>
+							
 							</div>
 						</form>
 					</div>

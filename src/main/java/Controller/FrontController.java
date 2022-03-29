@@ -64,12 +64,7 @@ public class FrontController extends HttpServlet {
 			com = new StoryBoardService();
 			nextpage = com.execute(request, response);
 		
-		// 커뮤 - 조회수 카운트 기능
-		} else if(command.equals("StoryCntCon.do")) {
-			com = new StoryCnt();
-			nextpage = com.execute(request, response);
-		}
-		
+		} 
 		
 		
 		

@@ -118,15 +118,45 @@ public class StoryDAO {
 	}
 	
 
-	// 조회수 카운트 메소드
-	public int updateCnt(int story_cnt, int story_seq) {
+	// 게시글 상세페이지 조회 메소드
+	public StoryDTO selectBoardOne(int story_seq) {
+		dbConn();
+		StoryDTO stdto = null;
+		
+		try {
+			sql = "select * from t_story where story_seq = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, story_seq);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				String story_title = rs.getString(2);
+				String story_content = rs.getString(3);
+				String story_joindate = rs.getString(5);
+				String user_id = rs.getString(6);
+				int story_cnt = rs.getInt(7);
+				int story_like = rs.getInt(8);
+				story_cnt++;
+				updateCount(story_cnt, story_seq);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		} return stdto;
+	}
+	
+	
+	// 게시글 조회수 업데이트 메소드
+	public int updateCount(int story_cnt, int story_seq) {
 		dbConn();
 		try {
 			sql = "update t_story set story_cnt = ? where story_seq = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, story_cnt++);
+			psmt.setInt(1, story_cnt);
 			psmt.setInt(2, story_seq);
-			psmt.executeUpdate();
+			cnt = psmt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
