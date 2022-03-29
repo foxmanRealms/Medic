@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.task-tabs{
+	display: flex;
+	width: 40%;
+}
+
+.task-tabs div{
+	padding:1em;
+}
